@@ -65,8 +65,8 @@ export function HeroFilm() {
       <video
         ref={videoRef}
         className="hero-film-video"
-        src={sitePath("/creator-hero.mp4")}
-        poster={sitePath("/creator-hero-poster.jpg")}
+        src={sitePath("/rosie/hero-film.mp4")}
+        poster={sitePath("/rosie/portrait-stage.jpg")}
         autoPlay
         muted
         loop

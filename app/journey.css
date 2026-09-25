@@ -301,21 +301,21 @@
 
 /* Clean editorial imagery for the creation workspace and visual story. */
 .journey .j-reach-image { background:#080a0e; }
-.journey .j-reach-image>img { object-position:62% center; }
-.journey .editor-monitor>img,.journey .subtitle-monitor .showcase-photo,.journey .color-comparison>img { object-position:64% center; }
-.journey .media-thumb img,.journey .sound-cover img { object-position:65% center; }
+.journey .j-reach-image>img { object-position:center 62%; filter:brightness(.78) saturate(.85); }
+.journey .editor-monitor>img { object-position:center 55%; }
+.journey .subtitle-monitor .showcase-photo { object-position:center 24%; }
+.journey .color-comparison>img { object-position:center 44%; }
+.journey .media-thumb img,.journey .sound-cover img { object-position:center 45%; }
+.journey .media-thumb.crop-1 img,.journey .media-thumb.crop-2 img { transform:none; }
 .journey .color-comparison>img:not(.color-before) { filter:none; }
 .journey .color-comparison .color-before { filter:saturate(.35) contrast(.85) brightness(1.1); }
 .journey .fashion-film { animation:editorial-drift 12s ease-in-out infinite alternate; }
 .journey .fashion-film[data-playing=false] { animation-play-state:paused; }
 @keyframes editorial-drift { from { transform:scale(1); } to { transform:scale(1.055); } }
 @media(max-width:700px) {
- .journey .j-reach-image>img { object-position:64% center; }
+ .journey .j-reach-image>img { object-position:center 48%; }
  .journey .j-reach-image figcaption strong { font-size:24px; }
 }
-.journey .editor-monitor>img { object-position:64% 15%; }
-.journey .j-reach-image>img { object-position:62% top; }
-@media(max-width:700px) { .journey .j-reach-image>img { object-position:64% top; } }
 
 /* Align the seven sections to the unchanged hero/final content grid. */
 .journey .j-container,.journey .creator-wall-bottom { width:min(100% - 96px,1380px); }

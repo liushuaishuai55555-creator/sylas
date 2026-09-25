@@ -1,4 +1,6 @@
-# 页面图片素材
+# 早期页面图片素材提示词
+
+本文件记录旧版 ImageGen 图片的提示词。当前页面中段人物影像已换为用户提供的抖音录屏素材，来源说明见 `README.md`；下列提示词对应的旧素材不再用于页面。
 
 页面的两张照片由内置 ImageGen 生成，分别保存为 `public/creator-studio.jpg` 和 `public/home-cooking.jpg`。以下是生成时使用的完整提示词。
 
