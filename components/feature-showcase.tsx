@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { sitePath } from "@/lib/site-path";
 
 const features = [
   {
@@ -66,7 +67,7 @@ type FeatureId = (typeof features)[number]["id"];
 const SHOWCASE_DURATION_MS = 8000;
 
 function ShowcaseFilm({ playing }: { playing: boolean }) {
-  return <img className="showcase-photo fashion-film" src="/fashion-editorial.png" alt="青红轮廓光下的时尚人像创作" data-playing={playing} />;
+  return <img className="showcase-photo fashion-film" src={sitePath("/fashion-editorial.png")} alt="青红轮廓光下的时尚人像创作" data-playing={playing} />;
 }
 
 function Waveform({ tone = "" }: { tone?: string }) {
@@ -99,12 +100,12 @@ export function FeatureDemo({ id, playing }: { id: FeatureId; playing: boolean }
     <div className="script-paper"><div className="paper-title">口播文案 <span>草稿示例</span></div><h4>不必急着定义，<br />让镜头跟着感觉走。</h4><div className="script-paragraph"><span>01 / 开场</span><p>从一束光开始，让轮廓慢慢走进画面。</p></div><div className="script-paragraph"><span>02 / 展开</span><p>转身、停顿、看向镜头，用三个片段找到自己的节奏。</p></div><div className="script-paragraph"><span>03 / 结尾</span><p>风格没有标准答案，表达就是你的签名。<i className="writing-caret" /></p></div></div>
   </div>;
   if (id === "edit") return <div className="demo-stage demo-editor">
-    <div className="editor-top"><div className="media-bin"><span>素材 · 03</span>{["轮廓光影", "人物特写", "回眸定格"].map((t, i) => <div key={t} className={`media-thumb crop-${i}`}><img src="/fashion-editorial.png" alt="" /><span>{t}</span></div>)}</div><div className="editor-monitor"><img src="/fashion-editorial.png" alt="时尚短片剪辑概念预览" /><span>让风格，自由发生</span><small>预览 / 00:08</small></div></div>
-    <div className="editor-timeline"><div className="timeline-ruler"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span></div><div className="timeline-clips">{["光影", "特写", "定格"].map((t,i) => <div key={t}><img src="/fashion-editorial.png" alt="" style={{objectPosition: `${i*45}% center`}} /><span>{t}</span></div>)}</div><div className="timeline-audio"><Waveform /><span>背景音乐</span></div><i className="timeline-cursor" /></div>
+    <div className="editor-top"><div className="media-bin"><span>素材 · 03</span>{["轮廓光影", "人物特写", "回眸定格"].map((t, i) => <div key={t} className={`media-thumb crop-${i}`}><img src={sitePath("/fashion-editorial.png")} alt="" /><span>{t}</span></div>)}</div><div className="editor-monitor"><img src={sitePath("/fashion-editorial.png")} alt="时尚短片剪辑概念预览" /><span>让风格，自由发生</span><small>预览 / 00:08</small></div></div>
+    <div className="editor-timeline"><div className="timeline-ruler"><span>00:00</span><span>00:05</span><span>00:10</span><span>00:15</span></div><div className="timeline-clips">{["光影", "特写", "定格"].map((t,i) => <div key={t}><img src={sitePath("/fashion-editorial.png")} alt="" style={{objectPosition: `${i*45}% center`}} /><span>{t}</span></div>)}</div><div className="timeline-audio"><Waveform /><span>背景音乐</span></div><i className="timeline-cursor" /></div>
   </div>;
   if (id === "captions") return <div className="demo-stage demo-subtitles"><div className="subtitle-monitor"><ShowcaseFilm playing={playing} /><span className="subtitle-tag">字幕效果预览</span><div className="subtitle-overlay">{cue === 1 ? <>把此刻的<mark>态度</mark></> : captions[cue]}</div></div><div className="subtitle-transcript"><div className="demo-kicker"><Captions size={18} /> 字幕与画面同步</div>{captions.map((line, index) => <p key={line} className={cue === index ? "current" : ""}><time>00:0{cueTimes[index]}</time>{line}</p>)}<div className="subtitle-style"><span>重点高亮</span><b>态度</b></div></div></div>;
-  if (id === "audio") return <div className="demo-stage demo-sound"><div className="sound-cover"><img src="/fashion-editorial.png" alt="晚餐风格记录" /><div><span>风格记录 / 声音搭配</span><h4>听见画面的节奏。</h4></div></div><div className="sound-mixer"><div className="sound-track"><span><AudioLines size={18} /> 人声 <small>清晰讲述</small></span><Waveform tone="voice" /></div><div className="sound-track"><span>♫ 背景音乐 <small>简洁 · 律动</small></span><Waveform /></div><div className="sound-levels"><span>人声优先</span><span>音乐轻轻衬托</span></div></div></div>;
-  return <div className="demo-stage demo-color"><div className="color-comparison"><img src="/fashion-editorial.png" alt="优化后的创作画面" /><img className="color-before" src="/fashion-editorial.png" alt="" style={{ clipPath: `inset(0 ${100 - comparison}% 0 0)` }} /><span className="color-label before">柔和色调</span><span className="color-label after">冷调光影</span><div className="color-divider" style={{left: `${comparison}%`}}><span>↔</span></div><input type="range" min="5" max="95" value={comparison} onChange={event => setComparison(Number(event.target.value))} aria-label="拖动画面对比" aria-valuetext={`柔和色调占 ${comparison}%`} /></div><div className="color-presets"><span>拖动对比画面</span><strong>冷调时尚</strong><span>轮廓光</span><span>青红色调</span></div></div>;
+  if (id === "audio") return <div className="demo-stage demo-sound"><div className="sound-cover"><img src={sitePath("/fashion-editorial.png")} alt="时尚风格记录" /><div><span>风格记录 / 声音搭配</span><h4>听见画面的节奏。</h4></div></div><div className="sound-mixer"><div className="sound-track"><span><AudioLines size={18} /> 人声 <small>清晰讲述</small></span><Waveform tone="voice" /></div><div className="sound-track"><span>♫ 背景音乐 <small>简洁 · 律动</small></span><Waveform /></div><div className="sound-levels"><span>人声优先</span><span>音乐轻轻衬托</span></div></div></div>;
+  return <div className="demo-stage demo-color"><div className="color-comparison"><img src={sitePath("/fashion-editorial.png")} alt="优化后的创作画面" /><img className="color-before" src={sitePath("/fashion-editorial.png")} alt="" style={{ clipPath: `inset(0 ${100 - comparison}% 0 0)` }} /><span className="color-label before">柔和色调</span><span className="color-label after">冷调光影</span><div className="color-divider" style={{left: `${comparison}%`}}><span>↔</span></div><input type="range" min="5" max="95" value={comparison} onChange={event => setComparison(Number(event.target.value))} aria-label="拖动画面对比" aria-valuetext={`柔和色调占 ${comparison}%`} /></div><div className="color-presets"><span>拖动对比画面</span><strong>冷调时尚</strong><span>轮廓光</span><span>青红色调</span></div></div>;
 }
 
 export function FeatureShowcase() {

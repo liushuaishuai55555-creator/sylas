@@ -13,6 +13,10 @@ pnpm dev
 
 打开终端显示的本地地址。构建检查可运行 `pnpm build`。
 
+## GitHub Pages
+
+推送到 `main` 后，`.github/workflows/deploy-pages.yml` 会静态导出页面并部署到 GitHub Pages。发布地址：<https://liushuaishuai55555-creator.github.io/sylas/>。仓库的 Settings → Pages → Build and deployment 需选择 **GitHub Actions**。
+
 ## 说明
 
 - 所有“开始创作”和“登录”入口通向 `/start` 占位页，未接入账号系统。

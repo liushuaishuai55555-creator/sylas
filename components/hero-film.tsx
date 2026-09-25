@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { sitePath } from "@/lib/site-path";
 
 const IDLE_DELAY_MS = 700;
 
@@ -64,8 +65,8 @@ export function HeroFilm() {
       <video
         ref={videoRef}
         className="hero-film-video"
-        src="/creator-hero.mp4"
-        poster="/creator-hero-poster.jpg"
+        src={sitePath("/creator-hero.mp4")}
+        poster={sitePath("/creator-hero-poster.jpg")}
         autoPlay
         muted
         loop

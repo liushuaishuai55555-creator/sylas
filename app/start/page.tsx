@@ -1,10 +1,11 @@
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { sitePath } from "@/lib/site-path";
 
 export default function StartPage() {
   return (
     <main className="start-page">
       <div className="start-page-inner">
-        <a className="start-back" href="/"><ArrowLeft size={18} aria-hidden="true" />返回首页</a>
+        <a className="start-back" href={sitePath("/")}><ArrowLeft size={18} aria-hidden="true" />返回首页</a>
         <div className="start-panel">
           <span className="start-kicker">YOUR CREATOR JOURNEY</span>
           <h1>下一步，开始创作。</h1>

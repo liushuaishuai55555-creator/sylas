@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
+import { sitePath } from "@/lib/site-path";
 
 // Public profile references and avatar attribution are recorded in CREATOR_SOURCES.md.
 const creators = [
@@ -40,7 +41,7 @@ export function CreatorWall() {
         <div className="creator-wall-track">
           {[0, 1, 2, 3].map(copy => <div className="creator-wall-set" key={copy} aria-hidden={copy > 0 ? true : undefined}>
             {row.map(creator => <article className="creator-card" key={creator.name}>
-              <div className="creator-card-head"><img src={`/creators/${creator.avatar}.jpg`} alt={`${creator.name}的头像`} width={56} height={56} loading="lazy" draggable={false} /><div><h3>{creator.name}</h3><span>{creator.category}博主</span></div><span className="creator-card-note" aria-hidden="true">♪</span></div>
+              <div className="creator-card-head"><img src={sitePath(`/creators/${creator.avatar}.jpg`)} alt={`${creator.name}的头像`} width={56} height={56} loading="lazy" draggable={false} /><div><h3>{creator.name}</h3><span>{creator.category}博主</span></div><span className="creator-card-note" aria-hidden="true">♪</span></div>
               <p className="creator-card-bio">{creator.bio}</p>
               <div className="creator-card-foot"><span className="creator-card-fans"><small>约</small><strong>{creator.fans}</strong><span>万</span></span><span className="creator-card-label">抖音粉丝</span></div>
             </article>)}

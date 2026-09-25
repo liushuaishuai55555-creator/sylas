@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { HeroFilm } from "@/components/hero-film";
 import { CreatorJourney } from "@/components/creator-journey";
 import { useDesktopMotion } from "@/hooks/use-desktop-motion";
+import { sitePath } from "@/lib/site-path";
 
 const navigation = [
   { label: "创作工具", href: "#creator-tools" },
@@ -56,7 +57,7 @@ function StartLink({
   return (
     <Button asChild className={`start-button ${className}`}>
       <a
-        href="/start"
+        href={sitePath("/start/")}
         onClick={() => trackEvent(source === "final" ? "final_cta_click" : "hero_cta_click", { source })}
       >
         {children}
@@ -100,13 +101,13 @@ export default function Home() {
             {navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
           </nav>
           <div className="header-actions">
-            <a className="login-link" href="/start?mode=login">登录</a>
+            <a className="login-link" href={`${sitePath("/start/")}?mode=login`}>登录</a>
             <StartLink source="header" className="header-start" />
             <details className="mobile-menu">
               <summary aria-label="导航菜单"><Menu size={23} aria-hidden="true" /></summary>
               <nav aria-label="移动端导航">
                 {navigation.map((item) => <a key={item.href} href={item.href} aria-label={item.label}>{item.label}</a>)}
-                <a href="/start?mode=login" aria-label="登录">登录</a>
+                <a href={`${sitePath("/start/")}?mode=login`} aria-label="登录">登录</a>
               </nav>
             </details>
           </div>
@@ -137,7 +138,7 @@ export default function Home() {
             <p className="eyebrow light-eyebrow"><span className="eyebrow-line" />YOUR STORY STARTS HERE</p>
             <h2 id="final-title">现在，开始你的<br /><span>第一条创作。</span></h2>
             <p>从一个想法、一段日常、一次想分享的瞬间开始。</p>
-            <div className="final-actions"><StartLink source="final" /><a href="/start?mode=login">已有账号？登录 <ArrowRight size={18} aria-hidden="true" /></a></div>
+            <div className="final-actions"><StartLink source="final" /><a href={`${sitePath("/start/")}?mode=login`}>已有账号？登录 <ArrowRight size={18} aria-hidden="true" /></a></div>
           </div>
         </section>
       </main>

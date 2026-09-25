@@ -5,6 +5,7 @@ import { ArrowDown, ArrowUpRight, Pause, Play } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CreatorWall } from "@/components/creator-wall";
 import { FeatureDemo } from "@/components/feature-showcase";
+import { sitePath } from "@/lib/site-path";
 
 const assists = [
   { id: "idea", title: "灵感", en: "IDEATE", text: "一个念头，也有很多种拍法。", detail: "从一个生活片段出发，找到属于你的表达角度。" },
@@ -39,7 +40,7 @@ function JourneyFilm({ paused, className = "" }: { paused: boolean; className?: 
     preference.addEventListener("change", sync);
     return () => { observer.disconnect(); document.removeEventListener("visibilitychange", sync); preference.removeEventListener("change", sync); video.pause(); };
   }, [paused]);
-  return <video ref={ref} className={className} src="/creator-hero.mp4" poster="/creator-hero-poster.jpg" muted loop playsInline preload="metadata" aria-label="创作者记录生活的影像" />;
+  return <video ref={ref} className={className} src={sitePath("/creator-hero.mp4")} poster={sitePath("/creator-hero-poster.jpg")} muted loop playsInline preload="metadata" aria-label="创作者记录生活的影像" />;
 }
 
 export function CreatorJourney() {
@@ -115,11 +116,11 @@ export function CreatorJourney() {
 
     <section id="recommendation" className="j-reach" aria-labelledby="recommendation-title" data-view-event="recommendation_view">
       <div className="j-container"><div className="j-section-meta"><span>03 — 表达，自有共鸣</span><span>MADE TO CONNECT</span></div><div className="j-reach-intro"><h2 id="recommendation-title">你眼里的风格，<br />是别人想看的<span>世界。</span></h2><p>一个眼神，一束光，一段自由的表达。<br />让好内容，有机会遇见懂它的人。</p></div></div>
-      <figure className="j-reach-image"><img src="/fashion-editorial.png" alt="干净深色背景中的时尚人物影像，青红轮廓光勾勒人物" loading="lazy" /><figcaption><span>YOUR OWN EXPRESSION.</span><strong>“风格，没有标准答案。”</strong><span>风格影像 / 自由表达</span></figcaption><div className="j-reach-stamp">与你<br />同频。</div></figure>
+      <figure className="j-reach-image"><img src={sitePath("/fashion-editorial.png")} alt="干净深色背景中的时尚人物影像，青红轮廓光勾勒人物" loading="lazy" /><figcaption><span>YOUR OWN EXPRESSION.</span><strong>“风格，没有标准答案。”</strong><span>风格影像 / 自由表达</span></figcaption><div className="j-reach-stamp">与你<br />同频。</div></figure>
       <div className="j-container j-reach-bottom"><span>一条内容，<br />不止一种共鸣。</span><div><p>被一个镜头吸引的人。<br />正在寻找风格灵感的人。<br /><em>和你一样，喜欢自由表达的人。</em></p><small>内容有机会通过推荐连接相关兴趣用户。以上为概念表达，不代表分发效果承诺。</small></div></div>
     </section>
 
-    <section id="growth" className="j-growth" aria-labelledby="growth-title"><div className="j-container"><div className="j-section-meta"><span>04 — 慢慢，成为创作者</span><span>GROW AT YOUR OWN PACE</span></div><div className="j-growth-layout"><div className="j-growth-heading"><span className="j-growth-orbit" aria-hidden="true">↗</span><h2 id="growth-title">不必一开始，<br />就很<span>了不起。</span></h2><p>影响力不是一个起点。<br />它藏在每一次真实的表达里。</p><a href="/start">让第一条内容发生 <ArrowUpRight size={18} /></a></div><ol className="j-growth-list">{[
+    <section id="growth" className="j-growth" aria-labelledby="growth-title"><div className="j-container"><div className="j-section-meta"><span>04 — 慢慢，成为创作者</span><span>GROW AT YOUR OWN PACE</span></div><div className="j-growth-layout"><div className="j-growth-heading"><span className="j-growth-orbit" aria-hidden="true">↗</span><h2 id="growth-title">不必一开始，<br />就很<span>了不起。</span></h2><p>影响力不是一个起点。<br />它藏在每一次真实的表达里。</p><a href={sitePath("/start/")}>让第一条内容发生 <ArrowUpRight size={18} /></a></div><ol className="j-growth-list">{[
       ["01", "先发布，再慢慢找到自己。", "把想法变成第一条作品。真实的表达，比一开始就完美更重要。", "START SOMEWHERE"],
       ["02", "一句回应，就有新的动力。", "从第一次点赞、第一条评论开始，感受屏幕另一端的共鸣。", "FIND A CONNECTION"],
       ["03", "每一次尝试，都更像你。", "试试不同的主题与节奏。在持续创作中，找到自己的表达风格。", "MAKE IT PERSONAL"],
